@@ -1,0 +1,42 @@
+{
+  "name": "Farmingxyz",
+  "version": "0.1.0",
+  "description": "Twitter Automation",
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "permissions": ["storage", "tabs", "activeTab","scripting"],
+  "host_permissions": ["https://*.x.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.x.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "images/icon-38.png",
+        "images/icon-48.png",
+        "images/icon-128.png"
+      ],
+      "matches": ["https://*.x.com/*"]
+    }
+  ],
+
+  "action": {
+    "default_icon": {
+  
+      "128": "images/icon-128.png"
+    },
+
+    "default_title": "Farmingxyz",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
