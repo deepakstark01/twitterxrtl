@@ -1,5 +1,18 @@
 // popup.js
 
+const keywordInput =  document.getElementById("keywords")
+const responsesInput = document.getElementById("responses")
+const repliesInput =  document.getElementById("replies")
+const speedInput =  document.getElementById("speed")
+const followCriteriaInput = document.getElementById("follow")
+const RetweetCheck =  document.getElementById("retweet").checked
+
+keywordInput.value = localStorage.getItem("keywords") || ""
+responsesInput.value = localStorage.getItem("responses") || ""
+repliesInput.value = localStorage.getItem("replies") || ""
+speedInput.value = localStorage.getItem("speed") || ""
+followCriteriaInput.checked = localStorage.getItem("followCriteria") === "true"
+RetweetCheck.checked = localStorage.getItem("Retweet") === "true"
 // Helper function to check connection with content script
 const checkConnection = async (tabId) => {
   try {
@@ -40,6 +53,14 @@ const startButtonHandler = async () => {
       Retweet: document.getElementById("retweet").checked,
       isSessionActive: true
     };
+
+    localStorage.setItem("keywords", data.keywords);
+    localStorage.setItem("responses", data.responses);
+    localStorage.setItem("replies", data.replies);
+    localStorage.setItem("speed", data.speed);
+    localStorage.setItem("followCriteria", data.followCriteria);
+    localStorage.setItem("Retweet", data.Retweet);
+
 
     // Send message to content script
     await chrome.tabs.sendMessage(currentTab.id, data);

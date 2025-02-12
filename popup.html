@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+ <!-- <!DOCTYPE html>
  <html lang="en">
  <head>
    <meta charset="UTF-8">
@@ -126,4 +126,167 @@
    <script src="popup.js" defer></script>
  </body>
  </html>
- 
+  -->
+
+
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --bumblebee-yellow: #FFB800;
+            --dark-bg: #111111;
+            --darker-bg: #000000;
+            --accent-gray: #2A2A2A;
+            --text-color: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--darker-bg);
+        }
+
+        .container {
+            width: 400px;
+            height: 450px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--dark-bg);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.15);
+            border: 1px solid var(--bumblebee-yellow);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--bumblebee-yellow);
+            font-size: 24px;
+            text-shadow: 0 0 10px rgba(255, 184, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--bumblebee-yellow);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid var(--accent-gray);
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: var(--darker-bg);
+            color: var(--text-color);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--bumblebee-yellow);
+            box-shadow: 0 0 10px rgba(255, 184, 0, 0.2);
+        }
+
+        select {
+            background-color: var(--darker-bg);
+            color: var(--text-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            background: var(--accent-gray);
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .checkbox-label {
+            margin-left: 5px;
+            color: var(--text-color);
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px;
+            color: var(--dark-bg);
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        #startButton {
+            background-color: var(--bumblebee-yellow);
+            margin-right: 30px;
+        }
+
+        #startButton:hover {
+            box-shadow: 0 0 10px rgba(255, 184, 0, 0.3);
+        }
+
+        #stopButton {
+            background-color: var(--accent-gray);
+            color: var(--text-color);
+        }
+
+        #stopButton:hover {
+            border: 1px solid var(--bumblebee-yellow);
+        }
+    </style>
+    <title>Tweetzyreply Bot</title>
+</head>
+<body>
+<div class="container">
+    <h1>Tweetzy</h1>
+    <div class="grid">
+        <div>
+            <label for="keywords" style="font-size: medium;">Keywords:</label>
+            <input type="text" id="keywords" placeholder="Enter keywords">
+            <label for="responses" style="font-size: medium;">Responses:</label>
+            <textarea id="responses" placeholder="Enter responses"></textarea>
+        </div>
+        <div>
+            <label for="replies" style="font-size: medium;">Replies per Session:</label>
+            <input type="number" id="replies" min="1" value="0">
+            <label for="speed" style="font-size: medium;">Bot Speed:</label>
+            <select id="speed">
+                <option value="slow">Slow</option>
+                <option value="medium" selected>Medium</option>
+                <option value="fast">Fast</option>
+            </select>
+        </div>
+        <div>
+            <div class="flex">
+                <label for="follow" class="checkbox-label" style="font-size: medium;">Follow</label>
+                <input type="checkbox" id="follow">
+                <label for="retweet" class="checkbox-label" style="font-size: medium;">Retweet</label>
+                <input type="checkbox" id="retweet">
+                <label for="like" class="checkbox-label" style="font-size: medium;">Like</label>
+                <input type="checkbox" id="like">
+            </div>
+        </div>
+    </div>
+    <button id="startButton" style="margin-right: 30px;">Start</button>
+    <button id="stopButton" style="font-size: medium;">Stop</button>
+</div>
+<script src="popup.js" defer></script>
+</body>
+</html>
